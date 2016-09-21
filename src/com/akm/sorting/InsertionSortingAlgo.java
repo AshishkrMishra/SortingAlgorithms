@@ -9,10 +9,16 @@ public class InsertionSortingAlgo {
 	public static void main(String[] args) {
 		
 		int [] inputArray={34,76,21,2,4,31,45,23,67,87,96,31};
-		displayArray(inputArray,"Before Sorting");
+		displayArray(inputArray,"Before Sorting of Solution 1");
 		// Implementation Of Insertion Sorting
 		getInsertionSortedArray(inputArray);
-		displayArray(inputArray,"After Sorting");
+		displayArray(inputArray,"After Sorting of Solution 1");
+		
+		int []inputArry={34,76,21,2,4,31,45,23,67,87,96,31};
+		displayArray(inputArry,"Before Sorting of Solution 2");
+		// Implementation Of Insertion Sorting
+		sort(inputArry);
+		displayArray(inputArry,"After Sorting of Solution 2");
 		
 		
 	}
@@ -31,7 +37,7 @@ public class InsertionSortingAlgo {
 		System.out.println();
 	}
 	/**
-	 * getInsertionSortedArray
+	 * getInsertionSortedArray this solution is simple to understand but taking n^3 
 	 * @param inputArray
 	 */
 	private static void getInsertionSortedArray(int[] inputArray) {
@@ -70,6 +76,26 @@ public class InsertionSortingAlgo {
 		{
 			//Logic For Shifting Elements One by One 
 			inputArray[i]=inputArray[i-1];
+		}
+	}
+	/**
+	 * sort - this is taking n^2 better than above solution 
+	 * we are not creating extra array we not increasing space complexity
+	 * @param inputArry
+	 */
+	private static void sort(int [] inputArry)
+	{
+		int length=inputArry.length;
+		for(int i=1;i<length;i++)
+		{
+			int elementToInsert=inputArry[i];
+			int j=i-1;
+			while(j>=0 && inputArry[j]>elementToInsert)
+			{
+				inputArry[j+1]=inputArry[j];
+				j=j-1;
+			}
+			inputArry[j+1]=elementToInsert;
 		}
 	}
 
