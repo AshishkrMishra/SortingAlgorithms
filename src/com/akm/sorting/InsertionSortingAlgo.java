@@ -88,13 +88,16 @@ public class InsertionSortingAlgo {
 		int length=inputArry.length;
 		for(int i=1;i<length;i++)
 		{
+			// Element to be Inserted at Correct Position
 			int elementToInsert=inputArry[i];
 			int j=i-1;
+			//Shift the Element to make it's Position
 			while(j>=0 && inputArry[j]>elementToInsert)
 			{
 				inputArry[j+1]=inputArry[j];
 				j=j-1;
 			}
+			// Insert the element
 			inputArry[j+1]=elementToInsert;
 		}
 	}
